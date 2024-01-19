@@ -1,0 +1,15 @@
+{
+    "name": "root/amila-elementor-save-contact",
+    "autoload": {
+        "psr-4": {
+            "AmilaUpathissa_SaveContact\\": "inc/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Amila Upathissa",
+            "email": "contact@amila.info"
+        }
+    ],
+    "require": {}
+}
