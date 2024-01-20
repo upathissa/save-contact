@@ -12,19 +12,20 @@ class Theme_Style
     public static function section($widget)
     {
         $widget->start_controls_section(
-            'profile_section_style',
+            'theme_style',
             [
                 'label' => esc_html__('Theme Styles', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
                 'tab' => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
 
+        // Theme Color
         $widget->add_control(
-            'color',
+            'theme_color',
             [
                 'label' => esc_html__('Theme Color', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
                 'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#f00',
+                'default' => '#7360ff',
                 'selectors' => [
                     '{{WRAPPER}} .card-theme-color' => 'background-color: {{VALUE}}',
                     '{{WRAPPER}} .image' => 'background-color: {{VALUE}}',
@@ -46,6 +47,20 @@ class Theme_Style
                 ],
             ]
         );
+
+        // // Theme Color
+        // $widget->add_control(
+        //     'text_color',
+        //     [
+        //         'label' => esc_html__('Text Color', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+        //         'type' => \Elementor\Controls_Manager::COLOR,
+        //         'default' => '#fff',
+        //         'selectors' => [
+        //             '{{WRAPPER}} .contact_links' => 'color: {{VALUE}}',
+
+        //         ],
+        //     ]
+        // );
 
         $widget->end_controls_section();
     }

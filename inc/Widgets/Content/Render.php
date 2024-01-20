@@ -35,9 +35,10 @@ class Render
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);">
                                 <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
                             </svg>
+
                         </span>
                         <div class="btn-text">
-                            Save Contact
+                            <?php echo $settings['btn_text']; ?>
 
                         </div>
                     </button>
@@ -60,7 +61,7 @@ class Render
                                 </svg>
                             </span>
                             <div class="link">
-                                <a href="#" class="phone">94 70 643 2833</a>
+                                <a href="#" class="contact_links">94 70 643 2833</a>
                             </div>
                         </div>
 
@@ -72,7 +73,7 @@ class Render
                                 </svg>
                             </span>
                             <div class="link">
-                                <a href="#" class="phone">contact@amila.info</a>
+                                <a href="#" class="contact_links">contact@amila.info</a>
                             </div>
                         </div>
                         <div class="items">
@@ -83,7 +84,7 @@ class Render
                                 </svg>
                             </span>
                             <address class="link">
-                                <a href="#" class="phone">Kambiadiya, Yahalthenna, Kandy</a>
+                                <a href="#" class="contact_links">Kambiadiya, Yahalthenna, Kandy</a>
                             </address>
                         </div>
                     </div>
@@ -101,7 +102,7 @@ class Render
                                 </svg>
                             </span>
                             <div class="link">
-                                <a href="#" class="phone">coder.lk</a>
+                                <a href="#" class="contact_links">coder.lk</a>
                             </div>
                         </div>
 
@@ -113,7 +114,7 @@ class Render
                                 </svg>
                             </span>
                             <div class="link">
-                                <a href="#" class="phone">contact@amila.info</a>
+                                <a href="#" class="contact_links">contact@amila.info</a>
                             </div>
                         </div>
                         <div class="items">
@@ -124,7 +125,7 @@ class Render
                                 </svg>
                             </span>
                             <div class="link">
-                                <a href="#" class="phone">Kambiadiya, Yahalthenna, Kandy</a>
+                                <a href="#" class="contact_links">Kambiadiya, Yahalthenna, Kandy</a>
                             </div>
                         </div>
                     </div>
@@ -142,7 +143,7 @@ class Render
                                 </svg>
                             </span>
                             <div class="link">
-                                <a href="#" class="phone">@www.coder.lk</a>
+                                <a href="#" class="contact_links">@www.coder.lk</a>
                             </div>
                         </div>
 
@@ -154,7 +155,7 @@ class Render
                                 </svg>
                             </span>
                             <div class="link">
-                                <a href="#" class="phone">Coder.lk</a>
+                                <a href="#" class="contact_links">Coder.lk</a>
                             </div>
                         </div>
                         <div class="items">
@@ -168,7 +169,7 @@ class Render
                                 </svg>
                             </span>
                             <div class="link">
-                                <a href="#" class="phone">coder</a>
+                                <a href="#" class="contact_links">coder</a>
                             </div>
                         </div>
                     </div>

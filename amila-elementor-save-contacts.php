@@ -49,18 +49,3 @@ function amilaupathissa_styles_scripts()
 
 add_action('wp_enqueue_scripts', 'amilaupathissa_styles_scripts');
 add_action('plugins_loaded', 'amilaupathissa_save_contacts_plugin');
-
-function my_preview_script_2()
-{
-    // scripts
-    wp_register_script(
-        'amilaupathissa-sc-sc2',
-        plugins_url('assets/js/amila-sc.js', __FILE__),
-        [],
-        filemtime(plugin_dir_path(__FILE__) . 'assets/js/amila-sc.js'), // version number based on file modification time
-        true
-    );
-    wp_enqueue_script('amilaupathissa-sc-sc2');
-}
-
-add_action('elementor/editor/before_enqueue_scripts', 'my_preview_script_2');
