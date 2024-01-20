@@ -26,9 +26,11 @@ class ContentTemplate
                     <button class="save-contact-btn card-theme-color">
 
                         <span class="plus-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);">
                                 <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
-                            </svg>
+                            </svg> -->
+                            <# var iconHTML=elementor.helpers.renderIcon( view, settings.btn_icon, { 'aria-hidden' : true }, 'i' , 'object' ); #>
+                                {{{ iconHTML.value }}}
                         </span>
                         <div class="btn-text">
                             {{{settings.btn_text}}}

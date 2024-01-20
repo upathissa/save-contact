@@ -62,7 +62,7 @@ class Save_Contacts extends \Elementor\Widget_Base
     // content
     protected function render()
     {
-        // Render::content($this);
+        Render::content($this);
     }
 
     protected function content_template()
