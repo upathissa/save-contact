@@ -36,10 +36,34 @@ class Profile_Style
         $widget->add_group_control(
             \Elementor\Group_Control_Typography::get_type(),
             [
-                'name' => 'content_typography',
+                'name' => 'name_typography',
                 'selector' => '{{WRAPPER}} .name',
             ]
         );
+
+
+        // Occupation Color
+        $widget->add_control(
+            'occupation_color',
+            [
+                'label' => esc_html__('Occupation Color', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'default' => '#333',
+                'selectors' => [
+                    '{{WRAPPER}} .job' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+        // Occupation Font data
+        $widget->add_group_control(
+            \Elementor\Group_Control_Typography::get_type(),
+            [
+                'name' => 'occupation_typography',
+                'selector' => '{{WRAPPER}} .job',
+            ]
+        );
+
 
 
         $widget->end_controls_section();

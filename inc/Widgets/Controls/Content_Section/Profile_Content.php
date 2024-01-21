@@ -4,7 +4,7 @@ namespace AmilaUpathissa_SaveContact\Widgets\Controls\Content_Section;
 
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+    exit; 
 }
 
 class Profile_Content
@@ -72,7 +72,7 @@ class Profile_Content
             ]
         );
 
-        // Title 
+        // Occupation 
         $widget->add_control(
             'profile_occupation',
             [

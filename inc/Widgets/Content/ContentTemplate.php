@@ -20,15 +20,12 @@ class ContentTemplate
 
                 <div class="text-data">
                     <h2 class="name">{{{settings.first_name}}} {{{settings.last_name}}}</h2>
-                    <span class="job">CEO - coder.lk</span>
+                    <span class="job">{{{settings.profile_occupation}}}</span>
                 </div>
                 <div class="save-contact">
                     <button class="save-contact-btn card-theme-color">
 
                         <span class="plus-icon">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);">
-                                <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
-                            </svg> -->
                             <# var iconHTML=elementor.helpers.renderIcon( view, settings.btn_icon, { 'aria-hidden' : true }, 'i' , 'object' ); #>
                                 {{{ iconHTML.value }}}
                         </span>
@@ -45,50 +42,53 @@ class ContentTemplate
                 <button class="tab_btn">Socials</button>
                 <div class="line"></div>
             </div>
+            <!-- Main Contact -->
             <div class="content_box">
                 <div class="content active">
                     <div class="contact-box">
-                        <div class="items">
-                            <span class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
-                                    <path d="m20.487 17.14-4.065-3.696a1.001 1.001 0 0 0-1.391.043l-2.393 2.461c-.576-.11-1.734-.471-2.926-1.66-1.192-1.193-1.553-2.354-1.66-2.926l2.459-2.394a1 1 0 0 0 .043-1.391L6.859 3.513a1 1 0 0 0-1.391-.087l-2.17 1.861a1 1 0 0 0-.29.649c-.015.25-.301 6.172 4.291 10.766C11.305 20.707 16.323 21 17.705 21c.202 0 .326-.006.359-.008a.992.992 0 0 0 .648-.291l1.86-2.171a.997.997 0 0 0-.085-1.39z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <div class="link">
-                                <a href="#" class="contact_links">94 70 643 2833</a>
-                            </div>
-                        </div>
-
-                        <div class="items">
-                            <span class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
-                                    <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.7-8 5.334L4 8.7V6.297l8 5.333 8-5.333V8.7z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <div class="link">
-                                <a href="#" class="contact_links">contact@amila.info</a>
-                            </div>
-                        </div>
-                        <div class="items">
-                            <span class="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
-                                    <path d="M12 2C7.589 2 4 5.589 4 9.995 3.971 16.44 11.696 21.784 12 22c0 0 8.029-5.56 8-12 0-4.411-3.589-8-8-8zm0 12c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z">
-                                    </path>
-                                </svg>
-                            </span>
-                            <address class="link">
-                                <a href="#" class="contact_links">Kambiadiya, Yahalthenna, Kandy</a>
-                            </address>
-                        </div>
+                        <# if ( settings.main_contact_list.length ) { #>
+                            <# _.each( settings.main_contact_list, function( item ) { #>
+                    
+                                <div class="items">
+                                    <span class="icon">
+                                    <#
+                                        var iconContact = elementor.helpers.renderIcon( view, item.main_contact_icon, { 'aria-hidden': true }, 'i' , 'object' );
+                                    #>
+                                    {{{iconContact.value}}}
+                                    </span>
+                                    <div class="link">
+                                        <a href="{{{ item.main_contact_link.url }}}" class="contact_links">{{{ item.main_display_text }}}</a>
+                                    </div>
+                                </div>
+                            <# }); #>
+                        <# } #>
+                        
                     </div>
                 </div>
             </div>
-
+            <!-- Business contact  -->
             <div class="content_box">
                 <div class="content">
                     <div class="contact-box">
+                        <# if ( settings.business_contact_list.length ) { #>
+                            <# _.each( settings.business_contact_list, function( item ) { #>
+                    
+                                <div class="items">
+                                    <span class="icon">
+                                    <#
+                                        var iconContact = elementor.helpers.renderIcon( view, item.business_contact_icon, { 'aria-hidden': true }, 'i' , 'object' );
+                                    #>
+                                    {{{iconContact.value}}}
+                                    </span>
+                                    <div class="link">
+                                        <a href="{{{ item.business_contact_link.url }}}" class="contact_links">{{{ item.business_display_text }}}</a>
+                                    </div>
+                                </div>
+                            <# }); #>
+                        <# } #>
+                        
+                    </div>
+                    <!-- <div class="contact-box">
                         <div class="items">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
@@ -123,13 +123,32 @@ class ContentTemplate
                                 <a href="#" class="contact_links">Kambiadiya, Yahalthenna, Kandy</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
             <div class="content_box">
                 <div class="content">
                     <div class="contact-box">
+                        <# if ( settings.social_contact_list.length ) { #>
+                            <# _.each( settings.social_contact_list, function( item ) { #>
+                    
+                                <div class="items">
+                                    <span class="icon">
+                                    <#
+                                        var iconContact = elementor.helpers.renderIcon( view, item.social_contact_icon, { 'aria-hidden': true }, 'i' , 'object' );
+                                    #>
+                                    {{{iconContact.value}}}
+                                    </span>
+                                    <div class="link">
+                                        <a href="{{{ item.social_contact_link.url }}}" class="contact_links">{{{ item.social_display_text }}}</a>
+                                    </div>
+                                </div>
+                            <# }); #>
+                        <# } #>
+                        
+                    </div>
+                    <!-- <div class="contact-box">
                         <div class="items">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);">
@@ -167,7 +186,7 @@ class ContentTemplate
                                 <a href="#" class="contact_links">coder</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 

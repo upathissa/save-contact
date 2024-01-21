@@ -149,6 +149,7 @@
 .text-data .name {
     font-size: 22px;
     font-weight: 500;
+    margin: 6px 0;
 }
 
 .text-data .job {
@@ -184,6 +185,15 @@
     align-items: center;
     /* Center the content of these as well */
 }
+.plus-icon svg,
+.plus-icon i {
+    width: 24px;
+    padding: 6px;
+    fill: #fff;
+    /* display: flex;
+    align-items: center; */
+
+}
 
 
 /**
@@ -194,19 +204,14 @@
 
 .contact-box .items {
     display: flex;
+    align-items: center;
     /* padding-top: 12px; */
 }
 
 .contact-box .items .icon {
-    width: 54px;
-    height: 54px;
-    display: flex;
-    /* justify-content: center; */
-
-    align-items: center;
-    /**Centers vertically*/
-
-    /* background-color: red; */
+    width: 18px;
+    height: 18px;
+    margin-right: 24px;
 }
 
 .contact-box .items .link {
