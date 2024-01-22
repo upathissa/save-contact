@@ -28,12 +28,12 @@ class Contact_List {
 
         Main_Contact::init($widget);
 
-        $widget->add_control(
-            'hr_main_business',
-            [
-                'type' => \Elementor\Controls_Manager::DIVIDER,
-            ]
-        );
+        // $widget->add_control(
+        //     'hr_main_business',
+        //     [
+        //         'type' => \Elementor\Controls_Manager::DIVIDER,
+        //     ]
+        // );
 
         /**
          * +++++++++++++++++++++++++++++++++++++++++++
@@ -41,14 +41,14 @@ class Contact_List {
          * +++++++++++++++++++++++++++++++++++++++++++
          */
 
-        Business_Contact::init($widget);
+        // Business_Contact::init($widget);
 
-        $widget->add_control(
-            'hr_business_social',
-            [
-                'type' => \Elementor\Controls_Manager::DIVIDER,
-            ]
-        );
+        // $widget->add_control(
+        //     'hr_business_social',
+        //     [
+        //         'type' => \Elementor\Controls_Manager::DIVIDER,
+        //     ]
+        // );
 
         /**
          * +++++++++++++++++++++++++++++++++++++++++
@@ -56,7 +56,7 @@ class Contact_List {
          * +++++++++++++++++++++++++++++++++++++++++
          */
 
-        Social_Contact::init($widget);
+        // Social_Contact::init($widget);
 
         $widget->end_controls_section();
 

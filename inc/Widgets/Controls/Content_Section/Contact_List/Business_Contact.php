@@ -37,6 +37,28 @@ class Business_Contact {
 				
 			]
 		);
+		
+		// Option selector
+		$repeater->add_control(
+			'business_contact_category',
+			[
+				'label' => esc_html__( 'Category', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'home' => [
+						'title' => esc_html__( 'Home', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
+						'icon' => 'fa fa-home',
+					],
+					'work' => [
+						'title' => esc_html__( 'Work', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
+						'icon' => 'fa fa-briefcase',
+					],
+				],
+				'default' => 'home',
+				'toggle' => true,
+			]
+		);
+
 
         // Contact Text
 		$repeater->add_control(
@@ -46,6 +68,9 @@ class Business_Contact {
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__( '(+94) 70 643 2833' , AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
 				'label_block' => true,
+				'ai' => [
+                    'active' => false,
+                ],
 			]
 		);
 

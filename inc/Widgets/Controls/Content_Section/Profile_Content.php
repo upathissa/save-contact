@@ -69,18 +69,53 @@ class Profile_Content
             'hr_name_title',
             [
                 'type' => \Elementor\Controls_Manager::DIVIDER,
+                'label' => esc_html__('Company info', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
             ]
         );
 
-        // Occupation 
+        // Company 
         $widget->add_control(
-            'profile_occupation',
+            'profile_company',
             [
-                'label' => esc_html__('Occupation', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+                'label' => esc_html__('Company', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'placeholder' => esc_html__('Occupation', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
-                'default' => esc_html__('Founder | coder.lk', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
-                'label_block' => true,
+                'placeholder' => esc_html__('Company', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+                'default' => esc_html__('coder.lk', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+                
+                'ai' => [
+                    'active' => false,
+                ],
+            ]
+        );
+
+        // Separator 
+        $widget->add_control(
+			'job_company_separator',
+			[
+				'label' => esc_html__( 'Separator', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+				'type' => \Elementor\Controls_Manager::SELECT,
+				'default' => ' | ',
+				'options' => [
+					' | ' => esc_html__( 'Default', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+					' | ' => esc_html__( '|', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+					' @ '  => esc_html__( '@', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+					' - ' => esc_html__( '-', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+					' || ' => esc_html__( '||', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+					' -- ' => esc_html__( '--', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+				],
+				
+			]
+		);
+
+        // Job Title 
+        $widget->add_control(
+            'profile_job_title',
+            [
+                'label' => esc_html__('Job Title', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'placeholder' => esc_html__('Job Title', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+                'default' => esc_html__('Developer', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
+                
                 'ai' => [
                     'active' => false,
                 ],

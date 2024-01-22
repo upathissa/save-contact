@@ -32,6 +32,27 @@ class Social_Contact {
 			]
 		);
 
+		// Option selector
+		$repeater->add_control(
+			'social_contact_category',
+			[
+				'label' => esc_html__( 'Category', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'home' => [
+						'title' => esc_html__( 'Home', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
+						'icon' => 'fa fa-home',
+					],
+					'work' => [
+						'title' => esc_html__( 'Work', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
+						'icon' => 'fa fa-briefcase',
+					],
+				],
+				'default' => 'home',
+				'toggle' => true,
+			]
+		);
+
         // Contact Text
 		$repeater->add_control(
 			'social_display_text',
@@ -40,6 +61,9 @@ class Social_Contact {
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => esc_html__( '(+94) 70 643 2833' , AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
 				'label_block' => true,
+				'ai' => [
+                    'active' => false,
+                ],
 			]
 		);
 
@@ -86,7 +110,7 @@ class Social_Contact {
 		$widget->add_control(
 			'social_contact_list',
 			[
-				'label' => esc_html__( 'Business Contact List', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
+				'label' => esc_html__( 'Social Contact List', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN ),
 				'type' => \Elementor\Controls_Manager::REPEATER,
 				'fields' => $repeater->get_controls(),
 				'default' => [
@@ -108,7 +132,7 @@ class Social_Contact {
                             'url' => 'mailto:info@coder.lk',
                         ],
                         'social_contact_icon' => [
-                            'value' => 'fad fa-facebook-messenger', 
+                            'value' => 'fab fa-facebook-messenger', 
                             'library' => 'fa-brands',
                         ],
 					],

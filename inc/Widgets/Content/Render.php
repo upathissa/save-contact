@@ -17,10 +17,50 @@ class Render
     {
         $settings = $widget->get_settings_for_display();
 
+        $contact_list_items = $settings['main_contact_list'];
+        $phone_numbers = [];
+        $emails = [];
+        $websites = [];
+        $addresses = [];
+
+        foreach ($contact_list_items as $contacts) {
+            if($contacts['main_contact_type'] == 'phone' || $contacts['main_contact_type'] == 'whatsapp'){
+                $phone_numbers[] = [
+                    'phone_number' => preg_replace('/[^0-9]/', '', $contacts['main_display_text']) ?? '',
+                    'type' => $contacts['main_contact_category'] ?? '',
+                ];
+            }
+            if($contacts['main_contact_type'] == 'email'){
+                $emails[] = $contacts['main_display_text'];
+            }
+            if($contacts['main_contact_type'] == 'website'){
+                $websites[] = $contacts['main_display_text'];
+            }
+            if($contacts['main_contact_type'] == 'address'){
+                $addresses[] = $contacts['main_display_text'];
+            }
+            echo json_encode($contacts);
+        }
+
+        $vcard = [
+            'first_name' => $settings['first_name'] ?? '',
+            'last_name' => $settings['last_name'] ?? '',
+            'company' => $settings['profile_company'] ?? '',
+            'job_title' => $settings['profile_job_title'] ?? '',
+            'phones' => !empty($phone_numbers) ? $phone_numbers : '',
+            'emails' => !empty($emails) ? $emails : '',
+            'websites' => !empty($websites) ? $websites : '',
+            'addresses' => !empty($addresses) ? $addresses : ''
+        ];
+
+        echo '<script> var amila_save_contact_vcard = '.json_encode($vcard).';</script>';
+
 ?>
-    <div id="amilaupathissa_vcf_generator" style="display: none;">
-        <span id="full_name">Amila Upathissa</span>
-    </div>
+<?php 
+
+// preg_replace('/[^0-9]/', '', $phoneNumber);
+
+?>
 
         <div class="container top-container amilaupathissa_save_contact">
             <div class="profile-card">
@@ -31,15 +71,14 @@ class Render
 
                 <div class="text-data">
                     <h2 class="name"><?php echo $settings['first_name'] . ' ' . $settings['last_name']; ?></h2>
-                    <span class="job"><?php echo $settings['profile_occupation'] ;?></span>
+                    <span class="job"><?php 
+                        echo $settings['profile_job_title']. $settings['job_company_separator'] .$settings['profile_company'];
+                    ?></span>
                 </div>
                 <div class="save-contact">
-                    <button class="save-contact-btn card-theme-color">
+                    <button onclick="downloadVCardFromAmilaUpathissaSaveContact()" class="save-contact-btn card-theme-color">
 
                         <span class="plus-icon">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgb(255, 255, 255);">
-                                <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path>
-                            </svg> -->
                             <?php \Elementor\Icons_Manager::render_icon($settings['btn_icon'], ['aria-hidden' => 'false']); ?>
                         </span>
                         <div class="btn-text">
@@ -48,12 +87,6 @@ class Render
                         </div>
                     </button>
                 </div>
-            </div>
-            <div class="tab_box">
-                <button class="tab_btn active">Contact</button>
-                <button class="tab_btn">Business</button>
-                <button class="tab_btn">Socials</button>
-                <div class="line"></div>
             </div>
             <div class="content_box">
                 <div class="content active">
@@ -80,61 +113,6 @@ class Render
                     </div>
                 </div>
             </div>
-
-            <div class="content_box">
-                <div class="content">
-                    <div class="contact-box">
-                        <?php 
-                            if ( $settings['business_contact_list'] ) {
-                                foreach ( $settings['business_contact_list'] as $item ) {
-                                    echo '<div class="items">';
-                                    echo '    <div class="icon">';
-                                    \Elementor\Icons_Manager::render_icon( $item['business_contact_icon'], [ 
-                                                    'aria-hidden' => 'true',
-                                                    'class' => 'icon',
-                                                    'width' => "24",
-                                                    'height' => "24"
-                                                ]);
-                                    echo '    </div>';
-                                    echo '    <div class="link">';
-                                    echo '        <a href="' . $item['business_contact_link']['url'] . '" class="contact_links">' . $item['business_display_text'] . '</a>';
-                                    echo '    </div>';
-                                    echo '</div>';
-                                }
-                            }
-                        ?>  
-                
-                    </div>
-                </div> 
-            </div>
-
-            <div class="content_box">
-                <div class="content">
-                    <div class="contact-box">
-                        <?php 
-                            if ( $settings['social_contact_list'] ) {
-                                foreach ( $settings['social_contact_list'] as $item ) {
-                                    echo '<div class="items">';
-                                    echo '    <div class="icon">';
-                                    \Elementor\Icons_Manager::render_icon( $item['social_contact_icon'], [ 
-                                                    'aria-hidden' => 'true',
-                                                    'class' => 'icon',
-                                                    'width' => "24",
-                                                    'height' => "24"
-                                                ]);
-                                    echo '    </div>';
-                                    echo '    <div class="link">';
-                                    echo '        <a href="' . $item['social_contact_link']['url'] . '" class="contact_links">' . $item['social_display_text'] . '</a>';
-                                    echo '    </div>';
-                                    echo '</div>';
-                                }
-                            }
-                        ?> 
-                        
-                    </div>
-                </div>
-            </div>
-
         </div>
 <?php
 
