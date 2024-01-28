@@ -12,6 +12,8 @@ class Render
     public function __construct()
     {
     }
+ 
+    
 
     public static function content($widget)
     {
@@ -34,13 +36,15 @@ class Render
                 $emails[] = $contacts['main_display_text'];
             }
             if($contacts['main_contact_type'] == 'website'){
-                $websites[] = $contacts['main_display_text'];
+                $websites[] = $contacts['main_contact_link']['url'];
             }
             if($contacts['main_contact_type'] == 'address'){
                 $addresses[] = $contacts['main_display_text'];
             }
-            echo json_encode($contacts);
         }
+
+        $img_url = $settings['profile_image']['url'];
+
 
         $vcard = [
             'first_name' => $settings['first_name'] ?? '',
@@ -50,15 +54,11 @@ class Render
             'phones' => !empty($phone_numbers) ? $phone_numbers : '',
             'emails' => !empty($emails) ? $emails : '',
             'websites' => !empty($websites) ? $websites : '',
-            'addresses' => !empty($addresses) ? $addresses : ''
+            'addresses' => !empty($addresses) ? $addresses : '',
+            'profile_url' => $img_url
         ];
 
         echo '<script> var amila_save_contact_vcard = '.json_encode($vcard).';</script>';
-
-?>
-<?php 
-
-// preg_replace('/[^0-9]/', '', $phoneNumber);
 
 ?>
 
@@ -66,7 +66,7 @@ class Render
             <div class="profile-card">
                 <div class="image">
                     <!-- <img src="profile-image.jpg" alt="" class="profile-img"> -->
-                    <img src="<?php echo esc_url($settings['profile_image']['url']); ?>" alt="" width="100px" height="100px" class="profile-img">
+                    <img src="<?php echo esc_url($settings['profile_image']['url']); ?>" alt="" width="100px" height="100px" id="amilaupathissa-sc-provile-image" class="profile-img">
                 </div>
 
                 <div class="text-data">
@@ -76,7 +76,7 @@ class Render
                     ?></span>
                 </div>
                 <div class="save-contact">
-                    <button onclick="downloadVCardFromAmilaUpathissaSaveContact()" class="save-contact-btn card-theme-color">
+                    <button onclick="downloadVCardFromAmilaUpathissaSaveContact()" id="amilaupathissa-sc-btn" class="save-contact-btn card-theme-color">
 
                         <span class="plus-icon">
                             <?php \Elementor\Icons_Manager::render_icon($settings['btn_icon'], ['aria-hidden' => 'false']); ?>

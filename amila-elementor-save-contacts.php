@@ -5,7 +5,7 @@ use AmilaUpathissa_SaveContact\Plugin;
 /**
  * Plugin Name: Save Contacts by Amila
  * Description: You can add contact information to the website and it can be saved to the mobile phone directly.
- * Version:     1.0.0
+ * Version:     1.1.4
  * Author:      Amila Upathissa
  * Author URI:  https://amila.info
  * Text Domain: amila-elementor-save-contacts
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Global variables 
-define('AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN', 'amila-save-contacts');
+define('AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN', 'amila-elementor-save-contacts');
 require_once(__DIR__ . '/vendor/autoload.php');
 
 function amilaupathissa_save_contacts_plugin()
@@ -40,10 +40,11 @@ function amilaupathissa_styles_scripts()
         'amilaupathissa-sc-script',
         plugins_url('assets/js/amila-sc.js', __FILE__),
         [],
-        '1.0.0',
+        '1.1.4',
         true
     );
 }
+
 
 
 

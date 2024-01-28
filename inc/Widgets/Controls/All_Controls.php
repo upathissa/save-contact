@@ -4,6 +4,7 @@ namespace AmilaUpathissa_SaveContact\Widgets\Controls;
 
 use AmilaUpathissa_SaveContact\Widgets\Controls\Content_Section\Contact_List;
 use AmilaUpathissa_SaveContact\Widgets\Controls\Content_Section\Profile_Content;
+use AmilaUpathissa_SaveContact\Widgets\Controls\Style_Section\Contact_Style;
 use AmilaUpathissa_SaveContact\Widgets\Controls\Style_Section\Profile_Style;
 use AmilaUpathissa_SaveContact\Widgets\Controls\Style_Section\Theme_Style;
 
@@ -31,6 +32,9 @@ class All_Controls
          * ****************************** *
          */
         Theme_Style::section($widget);
+
         Profile_Style::section($widget);
+
+        Contact_Style::section($widget);
     }
 }

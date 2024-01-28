@@ -13,7 +13,7 @@ class All_Widgets
 {
     public function __construct()
     {
-        // Register Widget category
+        // Register new Widget category
         add_action('elementor/elements/categories_registered', [$this, 'add_widget_category']);
     }
     public function register_widgets($widgets_manager)

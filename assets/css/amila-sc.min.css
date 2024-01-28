@@ -1,7 +1,6 @@
 .amilaupathissa_save_contact {
     --section-primary-color: #7360ff;
     font-family: 'Poppins', sans-serif
-        /* --section-primary-color: #116532; */
 }
 
 .container {
@@ -11,32 +10,6 @@
     box-shadow: 0 2px 16px rgba(0, 0, 0, .1);
     border-radius: 18px;
 }
-/* 
-.tab_box {
-    width: 100%;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid rgba(229, 229, 229);
-    position: relative;
-}
-
-.tab_box .tab_btn {
-    font-size: 18px;
-    font-weight: 400;
-    color: #919191;
-    background: none;
-    border: none;
-    padding: 12px;
-    cursor: pointer;
-}
-
-.tab_box .tab_btn.active {
-
-    color: var(--section-primary-color);
-} */
-
 .content_box {
     display: block;
     width: 100%;
@@ -64,22 +37,6 @@
     display: block;
 }
 
-/* .content_box .content h2 {
-    margin-bottom: 10px;
-
-} */
-
-/* .line {
-    position: absolute;
-    top: 52px;
-    left: 0;
-    width: 90px;
-    height: 3px;
-    background-color: var(--section-primary-color);
-    border-radius: 12px;
-    transition: all .3s ease;
-} */
-
 /**
 ***********************************
 *****       PROFILE CSS       *****
@@ -95,13 +52,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* max-width: 370px; */
-    /* max-width: 370px; */
     width: 100%;
-    /* background: #fff; */
-    /* border-radius: 24px; */
-    /* padding: 24px; */
-    /* box-shadow: 0 5px 10px rgba(0, 0, 0, .1); */
     position: relative;
     padding: 18px 0;
     background-color: #f5f5f5;
@@ -180,17 +131,13 @@
 .save-contact-btn .plus-icon,
 .save-contact-btn .btn-text {
     display: flex;
-    /* Also make these flex containers */
     align-items: center;
-    /* Center the content of these as well */
 }
 .plus-icon svg,
 .plus-icon i {
     width: 24px;
     padding: 6px;
     fill: #fff;
-    /* display: flex;
-    align-items: center; */
 
 }
 

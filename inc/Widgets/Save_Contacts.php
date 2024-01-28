@@ -26,7 +26,7 @@ class Save_Contacts extends \Elementor\Widget_Base
 
     public function get_icon()
     {
-        return 'eicon-tel-field';
+        return 'eicon-save';
     }
 
     public function get_custom_help_url()

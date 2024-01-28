@@ -4,7 +4,7 @@ namespace AmilaUpathissa_SaveContact\Widgets\Controls\Style_Section;
 
 
 if (!defined('ABSPATH')) {
-    exit; // Exit if accessed directly.
+    exit; 
 }
 
 class Profile_Style
@@ -63,6 +63,16 @@ class Profile_Style
                 'selector' => '{{WRAPPER}} .job',
             ]
         );
+
+        // Background
+        $widget->add_group_control(
+			\Elementor\Group_Control_Background::get_type(),
+			[
+				'name' => 'profile_background',
+				'types' => [ 'classic', 'gradient' ],
+				'selector' => '{{WRAPPER}} .profile-card',
+			]
+		);
 
 
 

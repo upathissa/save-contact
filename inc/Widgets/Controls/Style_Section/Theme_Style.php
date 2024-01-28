@@ -48,20 +48,6 @@ class Theme_Style
             ]
         );
 
-        // // Theme Color
-        // $widget->add_control(
-        //     'text_color',
-        //     [
-        //         'label' => esc_html__('Text Color', AMILAUPATHISSA_PLUGIN_TEXT_DOMAIN),
-        //         'type' => \Elementor\Controls_Manager::COLOR,
-        //         'default' => '#fff',
-        //         'selectors' => [
-        //             '{{WRAPPER}} .contact_links' => 'color: {{VALUE}}',
-
-        //         ],
-        //     ]
-        // );
-
         $widget->end_controls_section();
     }
 }
